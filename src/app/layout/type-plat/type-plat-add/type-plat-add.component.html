@@ -1,0 +1,19 @@
+<form #addForm="ngForm" (ngSubmit)="create(addForm)" novalidate>
+  <div class="panel panel-default content" [@routerTransition]>
+    <div class="panel-heading panel-heading-height-auto">
+      <i class="fa fa-home"></i>&nbsp;
+      <label>Ajouter un type de plat</label>
+    </div>
+    <div class="panel-body modal-item-content">
+      <div class="row form-group">
+        <label class="label-form col-lg-4 text-right">Nom : </label>
+        <input type="text" class="form-control col-lg-7" required name="nom"
+         [(ngModel)]="typeplat.nom" #nom="ngModel">
+      </div>
+    </div>
+    <div class="panel-footer text-right">
+      <button class="btn btn-success">{{ 'add' | translate }}</button>&nbsp;
+      <button class="btn btn-danger" (click)="activeModal.close('Close click')">{{ 'exit' | translate }}</button>
+    </div>
+  </div>
+</form>

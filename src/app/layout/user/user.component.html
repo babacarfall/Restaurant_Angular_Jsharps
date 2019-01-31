@@ -1,0 +1,22 @@
+<div class="content panel panel-default" [@routerTransition]>
+    <app-table-header [dataTableResult]="dataTableResult" [add]="add"  (click_add)="open()"></app-table-header>
+    <div class="row">
+        <div class="col-lg-12 table-responsive">
+            <table #dataTable class="table table-hover compact" width="100%">
+                <thead>
+                    <tr>
+                        <th class="th-sm">NOM
+                        </th>
+                        <th class="th-sm th-5">DATE DE CREATION
+                        </th>
+                        <th class="th-sm th-5">ACTION
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

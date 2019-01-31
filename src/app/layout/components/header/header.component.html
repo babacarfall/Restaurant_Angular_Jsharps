@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg fixed-top">
+    <span class="logo"></span>
+    <button class="navbar-toggler" type="button" (click)="toggleSidebar()">
+        <!-- <span class="navbar-toggler-icon"></span> -->
+        <i class="fa fa-bars text-muted" aria-hidden="true"></i>
+    </button>
+    <div class="collapse navbar-collapse">
+        <div>
+            <form class="navbar-form" role="search">
+                <input type="text" class="fa fa-search form-control navbar-form-input input-xs" placeholder="{{ 'Search' | translate }}" name="q">
+
+                <label class="btn input-xs"><i class="fa fa-search" aria-hidden="true"></i></label>
+            </form>
+        </div>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown" ngbDropdown>
+                <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
+                    <i class="fa fa-language"></i> {{ 'Language' | translate }}
+                </a>
+                <div class="dropdown-menu-right" ngbDropdownMenu>
+                    <a class="dropdown-item" href="javascript:void(0)" (click)="changeLang('en')">
+                        {{ 'English' | translate }}
+                    </a>
+                    <a class="dropdown-item" href="javascript:void(0)" (click)="changeLang('fr')">
+                        {{ 'French' | translate }}
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item dropdown" ngbDropdown>
+                <a class="nav-link dropdown-toggle cursor-pointer" data-toggle="dropdown" *ngIf="sessionservice.user">
+                    <i class="fa fa-user"></i> 
+                    {{sessionservice.user.username}}
+                </a>
+                  <ul class="dropdown-menu pull-right" role="menu">
+                      <li><a class="dropdown-item" href="javascript:void(0)">
+                        <i class="fa fa-fw fa-user"></i> {{ 'Profile' | translate }}
+                        </a>
+                      </li>
+                      <li><a class="dropdown-item" [routerLink]="['/login']" (click)="onLoggedout()">
+                        <i class="fa fa-fw fa-power-off"></i> {{ 'Log Out' | translate }}
+                    </a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="javascript:void(0)">
+                            <i class="fa fa-fw fa-gear"></i> {{ 'Settings' | translate }}
+                        </a>
+                      </li>
+                  </ul>
+            </li>
+        </ul>
+    </div>
+</nav>

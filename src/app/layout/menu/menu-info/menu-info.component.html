@@ -1,0 +1,44 @@
+<div class="panel panel-default content"  [@routerTransition]>
+  <div class="panel-heading">
+    <label>Infos Plat</label>
+    <span class="pull-right">
+      <span class="pull-right">
+          <button class="btn btn-default  btn-xs" (click)="open()"><i class="fa fa-pencil" aria-hidden="true"></i>
+            {{'edit'| translate}}</button>
+            &nbsp;
+          <button class="btn btn-danger  btn-xs" (click)="delete()"><i class="fa fa-remove" aria-hidden="true"></i>
+            {{'delete'| translate}} </button>
+      </span>
+    </span>
+  </div>
+  <div class="panel-body no-padding">
+    <div class="col-lg-12 col-sm-12 form-group">
+        <div class="row"  *ngIf="menu.typeplat">
+          <label class="col-lg-2 col-sm-2 font-weight-normal">catégorie</label>
+          <label>{{menu.typeplat.nom}}</label>
+        </div>
+        <div class="row">
+          <label class="col-lg-2 col-sm-2 font-weight-normal">Nom</label>
+          <label>{{menu.plat}}</label>
+        </div>
+        <div class="row">
+          <label class="col-lg-2 col-sm-2 font-weight-normal">Prix</label>
+          <label>{{menu.prix}}</label>
+        </div>
+        <div class="row">
+          <label class="col-lg-2 col-sm-2 font-weight-normal">Description</label>          
+          <div class="col-lg-10 col-sm-10" [innerHTML]="menu.desc"></div>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="panel panel-default content" [@routerTransition]>
+  <div class="panel-heading">
+    <label>Galerie</label>
+  </div>
+  <div class="panel-body no-padding">
+      <div class="row form-group">
+          <img src="{{fileSrc}}" height="300" class="col-lg-12"/>
+        </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div>
+    <h2 class="text-muted">RESTAURANT <small>MENU</small></h2>
+<div class="content panel panel-default" [@routerTransition]>
+  <app-table-header [dataTableResult]="dataTableResult" [add]="add" (click_add)="open()"></app-table-header>
+  <div class="row">
+      <div class="col-lg-12 table-responsive">
+          <table #dataTable class="table table-hover compact" width="100%">
+              <thead>
+                  <tr>
+                    <th class="th-sm">Categorie
+                    </th>
+                    <th class="th-sm">plat
+                    </th>
+                    <th class="th-sm">prix
+                    </th>
+                      <th class="th-sm">DATE DE CREATION
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>
+<app-menu-statistique [menus]="data"></app-menu-statistique>
+
+</div>

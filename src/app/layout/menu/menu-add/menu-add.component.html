@@ -1,0 +1,41 @@
+<form #addForm="ngForm" (ngSubmit)="add(addForm)" novalidate>
+  <div class="panel panel-default content" [@routerTransition]>
+    <div class="panel-heading panel-heading-height-auto">
+      <i class="fa fa-file"></i>&nbsp;
+      <label>Ajouter Menu</label>
+    </div>
+    <div class="panel-body modal-item-content">
+      <div class="row form-group">
+        <label class="label-form col-lg-4 col-sm-4 text-right">Catégorie : </label>
+        <select name="typeplat" class="form-control col-lg-7 col-sm-7" required [(ngModel)]="typeplat">
+          <option value="-1">Selectionner un type de plat</option>
+          <option *ngFor="let typeplat of typeplats; let i=index" [value]="i">{{typeplat.nom}}</option>
+        </select>
+      </div>
+      <div class="row form-group">
+        <label class="label-form col-lg-4 col-sm-4 text-right">Nom plat : </label>
+        <input type="text" class="form-control col-lg-7 col-sm-7" required name="plat" [(ngModel)]="menu.plat" #plat="ngModel">
+      </div>
+      <div class="row form-group">
+        <label class="label-form col-lg-4 col-sm-4 text-right">Prix : </label>
+        <input type="number" class="form-control col-lg-7 col-sm-7" required name="prix" [(ngModel)]="menu.prix" #prix="ngModel">
+      </div>
+      <div class="row form-group">
+        <label class="label-form col-lg-4 col-sm-4 text-right">Description : </label>
+        <textarea id="textarea-input" name="textarea-input" rows="9" class="form-control col-lg-7 col-sm-7" placeholder="Content.." required
+                        name="desc" [(ngModel)]="menu.desc" #desc="ngModel"></textarea>
+      </div>
+      <div class="row form-group">
+        <label class="label-form col-lg-4 col-sm-4 text-right">Image : </label>
+        <input type="file" class="form-control col-lg-7 col-sm-7 input-xs" [(ngModel)]="file" required name="file" (change)="onFileChanged($event)">
+      </div>
+      <div class="row form-group">
+        <img *ngIf="filedata" [src]="filedata" height="300" class="col-lg-12"/>
+      </div>
+    </div>
+    <div class="panel-footer text-right">
+      <button class="btn btn-success" [disabled]="valide">{{ 'add' | translate }}</button>&nbsp;
+      <button class="btn btn-danger" (click)="activeModal.close('Close click')">{{ 'exit' | translate }}</button>
+    </div>
+  </div>
+</form>

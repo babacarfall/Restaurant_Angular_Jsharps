@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body background="background">
+<div [@routerTransition]>
+    <h2 class="text-muted">RESTAURANT <small>LES MEILLEURS PLATS</small></h2>
+    <div class="row">
+        <div class="col-md-12">
+            <ngb-carousel>
+                <ng-template ngbSlide *ngFor="let slider of sliders">
+                    <img class="img-fluid mx-auto d-block" [src]="slider.imagePath" alt="Random first slide" width="100%">
+                    <div class="carousel-caption">
+                    </div>
+                </ng-template>
+            </ngb-carousel>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'primary'" [icon]="'fa fa-user-circle'" [count]="4" [label]="'Utilisateurs'" ></app-stat>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'warning'" [icon]="'fa fa-vcard'" [count]="12" [label]="'MENU'" ></app-stat>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'success'" [icon]="'fa fa-window-maximize'" [count]="10" [label]="'TYPE PLATS'" ></app-stat>
+        </div>
+        <div class="col-xl-3 col-lg-6">
+            <app-stat [bgClass]="'danger'" [icon]="'fa fa-window-restore'" [count]="13" [label]="'PLATS'"></app-stat>
+        </div>
+    </div>
+    <div class="row">
+    </div>
+</div>
+</body>
+</html>
